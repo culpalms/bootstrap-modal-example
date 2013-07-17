@@ -1,0 +1,44 @@
+<div id="model_box" class="modal hide fade"
+  tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"
+      aria-hidden="true">×</button>
+    <h3 id="myModalLabel">
+      Add comment
+    </h3>
+  </div>
+  
+  <div class="modal-body">
+    <%= form_for(@job, :url => jobs_path,
+    :remote => true, :html => { :method => :post, :class=>"form-horizontal" } ) do |f| %>
+      <div class="control-group">
+        <label class="control-label" for="inputEmail">Comment</label>
+        <div class="controls">
+          <%= f.text_area :comment, :class => "span2", :rows => '4', :style=>"width: 223px; height: 84px;" %>
+          <p id="counter">Characters left: 150</p>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Tag</label>
+        <div class="controls">
+          <%= f.text_field :tag, :style=>"width: 223px;" %>
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <%= f.submit "Submit", :class=>"btn btn-primary submit", 'aria-hidden'=>"true" %>
+  </div>
+  <% end %>  
+</div>
+<script type="text/javascript">
+  $('#job_comment').keyup(function () {
+      var left = 150 - $(this).val().length;
+      if (left < 0) {
+          left = 0;
+      }
+      $('#counter').text('Characters left: ' + left);
+  });
+</script>
+
