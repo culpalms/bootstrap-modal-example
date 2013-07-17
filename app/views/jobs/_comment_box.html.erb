@@ -32,13 +32,3 @@
   </div>
   <% end %>  
 </div>
-<script type="text/javascript">
-  $('#job_comment').keyup(function () {
-      var left = 150 - $(this).val().length;
-      if (left < 0) {
-          left = 0;
-      }
-      $('#counter').text('Characters left: ' + left);
-  });
-</script>
-

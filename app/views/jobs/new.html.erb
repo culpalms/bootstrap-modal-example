@@ -3,3 +3,14 @@
   <i class="icon icon-question-sign"></i>Click here to open comment box
 </a>
 <%= render :partial => 'comment_box' %>
+
+<script type="text/javascript">
+  $('#job_comment').keyup(function () {
+      var left = 150 - $(this).val().length;
+      if (left < 0) {
+          left = 0;
+      }
+      $('#counter').text('Characters left: ' + left);
+  });
+</script>
+
