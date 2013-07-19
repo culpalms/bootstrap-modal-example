@@ -12,11 +12,12 @@
   <div class="modal-body">
     <%= form_for(@job, :url => jobs_path,
     :remote => true, :html => { :method => :post, :class=>"form-horizontal" } ) do |f| %>
+      <span class="error"></span>
       <div class="control-group">
         <label class="control-label" for="inputEmail">Comment</label>
         <div class="controls">
           <%= f.text_area :comment, :class => "span2", :rows => '4', :style=>"width: 223px; height: 84px;" %>
-          <p id="counter">Characters left: 150</p>
+          <p id="counter"></p>
         </div>
       </div>
       <div class="control-group">
@@ -27,7 +28,7 @@
       </div>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><p class="ok_btn">Close</p></button>
     <%= f.submit "Submit", :class=>"btn btn-primary submit", 'aria-hidden'=>"true" %>
   </div>
   <% end %>  

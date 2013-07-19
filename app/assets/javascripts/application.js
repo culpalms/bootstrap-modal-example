@@ -14,3 +14,34 @@
 //= require jquery_ujs
 //= require bootstrap
 
+
+$(document).ready(function()  {
+  var characters = 150;
+  $("#counter").append("You have <strong>"+  characters+"</strong> characters remaining");
+  $("#job_comment").keyup(function(){
+    if($(this).val().length > characters){
+      $(this).val($(this).val().substr(0, characters));
+    }
+    var remaining = characters -  $(this).val().length;
+    $("#counter").html("You have <strong>"+  remaining+"</strong> characters remaining");
+    if(remaining <= 10)
+    {
+      $("#counter").css("color","red");
+    }
+    else
+    {
+      $("#counter").css("color","black");
+    }
+  });
+
+  $('#new_job').submit(function(){
+    var comment = $("#job_comment").val();
+    if (comment==null || comment==""){    
+      $(".error").html("<center>Comment can't be blank</center>").css("color","red");
+      return false;
+     } else {
+      return true;
+    }
+  });
+
+});
