@@ -1,4 +1,5 @@
-$(".modal-body").html("Thank you for submitting your comment");
-$(".submit").css('display', 'none');
-$('<h3>Thanks</h3>').replaceAll('#myModalLabel');
-$('<p>Ok</p>').replaceAll('.ok_btn');
+$(".flash_message").html("<%= escape_javascript(render :partial => 'shared/flash_messages') %>");
+$('#model_box').modal('hide');
+$('#job_comment').val('');
+$('#job_tag').val('');
+$('<p id="counter">You have 150 characters remaining</p>').replaceAll('#counter');

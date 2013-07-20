@@ -12,3 +12,8 @@
  *= require bootstrap
  *= require bootstrap-responsive
 */
+.flash_message{
+  width:1000px; 
+  margin:auto; 
+  text-align:center;
+}
